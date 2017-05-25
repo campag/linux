@@ -632,6 +632,8 @@ Params: abx80x                  Select one of the ABx80x family:
 
         ds1307                  Select the DS1307 device
 
+        ds1337                  Select the DS1337 device
+
         ds1339                  Select the DS1339 device
 
         ds3231                  Select the DS3231 device
@@ -653,7 +655,10 @@ Params: abx80x                  Select one of the ABx80x family:
                                 ABx80x)
 
         wakeup-source           Specify that the RTC can be used as a wakeup
-                                source
+                                source. Useable devices are:
+                                DS1337 - on alarm INTA is pulled low
+                                DS1339, DS3231 - on alarm SQW/INT is pulled low
+                                MCP7940x, MCP7941x - on alarm MFP is pulled low
 
 
 Name:   i2c-sensor

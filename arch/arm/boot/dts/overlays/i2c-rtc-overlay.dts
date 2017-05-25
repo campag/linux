@@ -24,6 +24,11 @@
 				reg = <0x68>;
 				status = "disable";
 			};
+			ds1337: ds1337@68 {
+				compatible = "maxim,ds1337";
+				reg = <0x68>;
+				status = "disable";
+			};
 			ds1339: ds1339@68 {
 				compatible = "dallas,ds1339";
 				trickle-resistor-ohms = <0>;
@@ -65,6 +70,7 @@
 	__overrides__ {
 		abx80x = <&abx80x>,"status";
 		ds1307 = <&ds1307>,"status";
+		ds1337 = <&ds1337>,"status";
 		ds1339 = <&ds1339>,"status";
 		ds3231 = <&ds3231>,"status";
 		mcp7940x = <&mcp7940x>,"status";
@@ -75,7 +81,8 @@
 		trickle-diode-type = <&abx80x>,"abracon,tc-diode";
 		trickle-resistor-ohms = <&ds1339>,"trickle-resistor-ohms:0",
 					<&abx80x>,"abracon,tc-resistor";
-		wakeup-source = <&ds1339>,"wakeup-source?",
+		wakeup-source = <&ds1337>,"wakeup-source?",
+				<&ds1339>,"wakeup-source?",
 				<&ds3231>,"wakeup-source?",
 				<&mcp7940x>,"wakeup-source?",
 				<&mcp7941x>,"wakeup-source?";
